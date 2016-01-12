@@ -29,7 +29,7 @@ class MyController(QWidget):
 
     def connectButtons(self):
         """
-        Buttons connecten
+        Button mit Methode verbinden
         :return:
         """
         self.myForm.pushButton.clicked.connect(self.click)
@@ -37,11 +37,9 @@ class MyController(QWidget):
     def click(self):
         """
         Regelt, was beim druecken eines Buttons passieren soll
-        :param nr: Die Nummer des geklickten Buttons
         :return:
         """
-        #Ueberpruefen ob der richtige Button gedrueckt wurde und ob das Spiel zu Ende ist.
-        print("Click")
+        text = self.myModel.loadCSV()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
