@@ -24,9 +24,6 @@ class MyController(QWidget):
         # start a new game
         #self.start()
 
-        self.myForm.textBrowser.insertPlainText("hallo")
-        self.myForm.textBrowser.insertPlainText("\nmuh")
-
     def connectButtons(self):
         """
         Button mit Methode verbinden
@@ -40,6 +37,11 @@ class MyController(QWidget):
         :return:
         """
         text = self.myModel.loadCSV()
+        self.output(text)
+
+    def output(self, text):
+        self.myForm.textBrowser.clear()
+        self.myForm.textBrowser.insertPlainText(text)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
