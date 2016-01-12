@@ -20,13 +20,28 @@ class MyController(QWidget):
         #Buttons in ein Array speichern
         #self.addButtons()
         #connect the buttons with the clicked signal
-        #self.connectButtons()
+        self.connectButtons()
         # start a new game
         #self.start()
 
         self.myForm.textBrowser.insertPlainText("hallo")
         self.myForm.textBrowser.insertPlainText("\nmuh")
 
+    def connectButtons(self):
+        """
+        Buttons connecten
+        :return:
+        """
+        self.myForm.pushButton.clicked.connect(self.click)
+
+    def click(self):
+        """
+        Regelt, was beim druecken eines Buttons passieren soll
+        :param nr: Die Nummer des geklickten Buttons
+        :return:
+        """
+        #Ueberpruefen ob der richtige Button gedrueckt wurde und ob das Spiel zu Ende ist.
+        print("Click")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
