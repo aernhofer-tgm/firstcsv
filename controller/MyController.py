@@ -24,6 +24,10 @@ class MyController(QWidget):
         # start a new game
         #self.start()
 
+        self.myForm.textBrowser.insertPlainText("hallo")
+        self.myForm.textBrowser.insertPlainText("\nmuh")
+
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     c = MyController()
