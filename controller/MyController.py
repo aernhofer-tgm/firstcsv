@@ -20,9 +20,9 @@ class MyController(QWidget):
         #Buttons in ein Array speichern
         #self.addButtons()
         #connect the buttons with the clicked signal
-        self.connectButtons()
+        #self.connectButtons()
         # start a new game
-        self.start()
+        #self.start()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
