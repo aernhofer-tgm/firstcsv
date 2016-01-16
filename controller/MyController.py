@@ -29,19 +29,25 @@ class MyController(QWidget):
         Button mit Methode verbinden
         :return:
         """
-        self.myForm.pushButton.clicked.connect(self.click)
+        self.myForm.pushButton.clicked.connect(lambda: self.click( self.myForm.pushButton.text()))
+        self.myForm.pushButton_2.clicked.connect(lambda: self.click( self.myForm.pushButton_2.text()))
 
-    def click(self):
+    def click(self,beschriftung):
         """
         Regelt, was beim druecken eines Buttons passieren soll
         :return:
         """
-        text = self.myModel.loadCSV()
+        text=""
+        if beschriftung == "Load":
+            text = self.myModel.loadCSV()
+        elif beschriftung == "Save":
+            self.myModel.saveCSV(self.myForm.textEdit.toPlainText())
+            text = "Folgendes wurde gespeichert:\n" + self.myModel.loadCSV()
         self.output(text)
 
     def output(self, text):
-        self.myForm.textBrowser.clear()
-        self.myForm.textBrowser.insertPlainText(text)
+        self.myForm.textEdit.clear()
+        self.myForm.textEdit.insertPlainText(text)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
