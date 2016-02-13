@@ -9,7 +9,6 @@ class MyModel(object):
 
     def loadCSV(self):
         text = ""
-        self.filename = '../data/file.csv'
         with open(self.filename, newline='') as f:
             reader = csv.reader(f)
             try:
