@@ -10,6 +10,10 @@ __author__ = 'andie'
 class Test(object):
 
     def __init__(self):
+        """
+        
+        :return:
+        """
         self.model = MyModel()
         self.model.setPath("data/file.csv")
 
@@ -32,7 +36,28 @@ class Test(object):
 
 
     def test03_SaveLoad(self):
+        """
+
+        :return:
+        """
         text = "z;x;\nh;i\nu;e;"
         self.model.saveCSV(text)
         assert self.model.loadCSV() == text+"\n"
 
+    def test04_SaveSave(self):
+        """
+        Es ist möglich das file oeffter hinter einander zu beschreibem.
+        :return:
+        """
+        text = "z;xjzhguz;\nh;i\nu;e;"
+        self.model.saveCSV(text)
+        self.model.saveCSV(text)
+        assert self.model.loadCSV() == text+"\n"
+
+    def test05_LoadLoad(self):
+        """
+        Oefter laden
+        :return:
+        """
+        self.model.loadCSV()
+        assert self.model.loadCSV() == "z;xjzhguz;\nh;i\nu;e;\n";
