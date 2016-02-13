@@ -28,3 +28,6 @@ class MyModel(object):
                 wertezeile=zeile.split(";")
                 werte.append(wertezeile)
             writer.writerows(werte)
+
+    def setPath(self,path):
+        self.filename=path
